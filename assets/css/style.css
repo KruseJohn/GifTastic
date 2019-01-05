@@ -1,0 +1,147 @@
+
+* {
+    margin: 0px;
+}
+
+body {
+    background-color: lightsteelblue;
+    font-family: fantasy;
+}
+
+.jumbotron {
+    background-image: url("../images/7UP4.gif");
+    background-size: 100% 82%;
+    background-repeat: no-repeat;
+    text-align: center; 
+    text-shadow: 1px 1px 15px black, 0 0 55px red, 0 0 25px darkred;
+    color: whitesmoke;
+    letter-spacing: 3px;
+    margin-bottom:0;
+    background-color: transparent;
+}
+
+.header-txt {
+    position: absolute;
+    top: 0; bottom: 0;
+    margin: auto 0;
+    width: 100%;
+    height: 0px;
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.header-wrapper {
+    position: relative;
+} 
+
+.header-img {
+    width: 30%; 
+    border-radius: 50%;
+    
+}
+
+p {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    color: wheat;
+    margin: 0;
+}
+
+#left {
+    float: left;
+    width: 8%;
+    height: auto;
+}
+
+#right {
+    float: right;
+    width: 8%;
+    height: auto;
+}
+
+.superhero {
+    margin: 8px;
+    background-color: wheat;
+    font-size: 18px;
+    color: darkred;
+    letter-spacing: 2px;
+    box-shadow: 0px 0px 10px #000000; 
+    border: 5px purple;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+
+label {
+    font-size: 24px;
+    color: green;
+}
+
+#add-gif { /* submit bomb button  */
+    vertical-align: bottom;
+    object-fit: contain;
+    width: 50px;
+    height: 50px;
+}
+
+#search {
+    text-align: center; 
+}
+
+.holder {
+    float: left;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin: 10px 6px;
+    background-color: darkslateblue;
+    border-radius: 10px;
+    border: 3px wheat;
+    border-style: double;
+    box-shadow: 2px 2px 10px black; 
+} 
+
+#batman {
+    position: absolute;
+    left: 15%;
+    width: 70%;  
+    border-radius: 50%;
+    border: 10px gold;
+    border-style: double;
+    padding: 5px;
+    z-index: -1;
+}
+
+#friends {
+    position: absolute;
+    width: 10%;
+    left: 45%;
+    margin-top: 30px;
+    border-radius: 50%;
+    border: 5px gold;
+    border-style: double;
+  /*  margin: 3% 45%; */
+    z-index: 1;  
+}
+
+@media only screen and (max-width: 580px) {
+  
+    .holder {
+        margin: 10px 6px;
+    }
+
+    #left,
+    #right {
+        display: none;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
