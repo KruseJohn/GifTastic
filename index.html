@@ -7,64 +7,94 @@
   <title>Superhero!</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/sweetalert2/6.1.1/sweetalert2.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
-  
+
 </head>
 
 <body>
 
   <div class="container">
     <div class="jumbotron">
-      
-      
       <div class="header-wrapper">
-      <img class="header-img" src="assets/images/batrobin.gif">
-      <div class="header-txt">Superheroes!</div>
-    </div>
-    </div>
-
-    <div class="row">
-      <div class="col">
-        <!-- User input for new hero -->
-        <form id="search">
-            <img id="left" src="assets/images/super.gif">
-          <label for="gif-input"><i class="fas fa-bolt fa-flip-horizontal" style="color: gold;"> </i> Add a Superhero <i class="fas fa-bolt" style="color: gold;"> </i></label>
-          <input type="text" id="gif-input">
-          
-          <!-- Button triggers new movie to be added -->
-          <input id="add-gif" type="image" src="assets/images/bomby.png"  alt="submit">
-          <img id="right" src="assets/images/super2.gif">
-        </form>
+        <img class="header-img" src="assets/images/batrobin.gif">
+        <div class="header-txt">Superheroes!</div>
       </div>
     </div>
-    <br>
+    <div class="row justify-content-sm-center">
+      <div class="col-sm-auto">
+        <img id="dead" src="https://i.gifer.com/14Vb.gif">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div id="favorites">
+          <p class="header" id="spinner">FAVORITES</p>
+        </div>
+      </div>
+      <!-- User input for new hero -->
+      <form id="search">
+        <img id="left" src="assets/images/super.gif">
+        <label for="gif-input"><i class="fas fa-bolt fa-flip-horizontal" style="color: gold;"> </i> Add a Superhero
+          <i class="fas fa-bolt" style="color: gold;"> </i></label>
+        <input type="text" id="gif-input" placeholder="Search">
+
+        <!-- Button triggers new hero button to be added -->
+
+        <button type="submit" id="add-gif" class="btn btn-default">
+          <i class="fas fa-bomb fa-3x"></i>
+        </button>
+        <img id="right" src="assets/images/super2.gif">
+      </form>
+    </div>
+  </div>
+  <br>
+  <div class="container">
     <div class="row">
       <div class="col" id="gif-buttons">
         <!-- All superhero buttons will appear in this div -->
       </div>
     </div>
   </div>
+
   <div class="container">
     <br>
     <div class="row">
       <div class="col-xs-12" id="gifs-appear-here">
         <img id="batman" src="assets/images/super8.png">
-        <img id="friends" src="assets/images/friends.gif"> 
+        <img id="friends" src="assets/images/friends.gif">
+    <!--    <a>Favorites!</a>  -->
         <!-- All gifs will appear in this div -->
-    <!--    <button class="btn">FAV?</button>  -->
       </div>
-      <div class="col-xs-12" id="friends2">  
+
+      <!-- <button id="add" type="button">Add 10 More Gifs!</button>
+        <div id="counter">0</div>  -->
+
+
+      <div class="col-xs" id="friends2">
         <!-- #friends gif will go here when new gifs appear-->
       </div>
     </div>
+    <div class="row justify-content-sm-end">
+      <div class="col-sm-auto">
+        <button type="button" id="return" class="btn btn-danger">Return to Main Page</button>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+      <div class="col-xs-12" id="favGifs">
+        <!-- favorite gifs will go here -->
+
+      </div>
+    </div>
   </div>
-  <br>
-  <br>
-  
-  
-  
+
+
+
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/sweetalert2/6.1.1/sweetalert2.min.js"></script>
   <script src="assets/javascript/app.js"></script>
