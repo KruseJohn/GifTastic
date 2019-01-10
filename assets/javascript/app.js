@@ -41,6 +41,8 @@ $(document).ready(function () {
                 imageUrl: 'assets/images/darknight.gif',
                 imageWidth: 300,
                 imageHeight: 200,
+                customClass: 'animated flash',
+
             });
             return false;
         }
@@ -55,7 +57,9 @@ $(document).ready(function () {
                     imageUrl: 'assets/images/duplicate.gif',
                     imageWidth: 400,
                     imageHeight: 200,
+                    customClass: 'animated flash',
                 });
+                $("#gif-input").val("");
                 return false;
             }
         }
@@ -63,7 +67,7 @@ $(document).ready(function () {
         // Adding the new gif (topic) from the textbox to our topic array
         topics.push(topic);
         console.log(topics);
-
+        $("#gif-input").val("");
         // Calling renderButtons which handles the processing of our topic array
         renderButtons();
     });
@@ -148,7 +152,7 @@ $(document).ready(function () {
         console.log(hero);
 
         // Constructing a URL to search Giphy for each hero after selected by user
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + hero + "&api_key=VQVE4TWxa31vYL0rVQmC5oiSRQgC4taw&limit=50&rating=pg";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + hero + "&api_key=VQVE4TWxa31vYL0rVQmC5oiSRQgC4taw&limit=51&rating=pg";
         console.log(queryURL);
         // Performing our AJAX GET request
         $.ajax({
@@ -171,7 +175,7 @@ $(document).ready(function () {
                 $("#gifs-appear-here4").empty(gifDiv);
 
                 // Looping over every result item
-                for (var i = 0; i < results.length; i++) {
+                for (var i = 1; i < results.length; i++) {
 
                     var idTag = hero + i;
                     idTagFixed = idTag.split(' ').join('');
@@ -185,8 +189,8 @@ $(document).ready(function () {
                     // Add variable rating and store it
                     var rating = results[i].rating;
 
-                    // Create a line tag with the result item's rating, and display into html
-                    var p = $('<p>').text("Rating: " + rating).css("color", "wheat");
+                    // Create a line tag with the result item's index number and rating                 
+                    var p = $('<p>').text("Gif #" + i + " ---    Rating: " + rating).css("color", "wheat");
 
                     // Creating variables for the gif
                     var heroImage = results[i].images.fixed_height.url;
@@ -205,12 +209,13 @@ $(document).ready(function () {
                     }).css("float", "right").css("color", "red");
 
                     //  Display the gif in the html
-                    gifDiv.append(p);
-                    gifDiv.append(favBtn);
+                    //  gifDiv.append(p);
+                    gifDiv.append(p, favBtn);
                     gifDiv.prepend(gifHero);
 
+
                     // Conditionals to distribute gifs into 5 different divs (for adding gifs to page with button)...
-                    if (i < 10) {
+                    if (i < 11) {
 
                         $("#gifs-appear-here").append(gifDiv);
 
@@ -321,7 +326,6 @@ $(document).ready(function () {
         }
 
     } // end of on-click function...
-
 
     // On click function for selection of gif as "favorite"...
     $(document.body).on("click", ".fa-heart", function () {
