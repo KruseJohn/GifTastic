@@ -7,9 +7,10 @@ body {
     font-family: fantasy;
 }
 
+#friends,
 #add-gif,
 #gif-buttons,
-.holder img, 
+.holder img,
 .fa-heart {
     cursor: pointer;
 }
@@ -124,11 +125,6 @@ p {
 
 }
 
-#return {
-    float: right;
-
-}
-
 .superhero {
     margin: 8px;
     background-color: wheat;
@@ -194,24 +190,14 @@ label {
 
 #friends {
     position: absolute;
-    width: 10%;
     left: 45%;
+    width: 10%;
     margin-top: 30px;
     border-radius: 50%;
     border: 5px gold;
     border-style: double;
     padding: 3px;
     z-index: 1;
-}
-
-a {
-    position: absolute;
-    display: none;
-
-}
-
-#friends:hover+a {
-    display: block;
 }
 
 @media only screen and (max-width: 580px) {

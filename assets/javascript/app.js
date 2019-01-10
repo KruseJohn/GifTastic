@@ -30,14 +30,40 @@ $(document).ready(function () {
         // This line grabs the input from the textbox
         var topic = $("#gif-input").val().trim();
 
+        item = {}
+        // This prevents an empty text box from being submitted as a button or into the array...
+        if (!topic) {
+            item.topic = "";
+            swal({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Please type a name into the search field!',
+                imageUrl: 'assets/images/darknight.gif',
+                imageWidth: 300,
+                imageHeight: 200,
+            });
+            return false;
+        }
+
+        // This prevents a duplicate hero button from being created, leaving it out of the array...
+        for (i = 0; i < topics.length; i++) {
+            if (topics[i] === topic) {
+                swal({
+                    type: 'error',
+                    title: 'Oops...',
+                    text: topic + ' already exists...  Please add a different Superhero!',
+                    imageUrl: 'assets/images/duplicate.gif',
+                    imageWidth: 400,
+                    imageHeight: 200,
+                });
+                return false;
+            }
+        }
+
         // Adding the new gif (topic) from the textbox to our topic array
         topics.push(topic);
         console.log(topics);
 
-        // This prevents an empty text box from being submitted
-        if ($("#gif-input").val() === "") {
-            return false;
-        }
         // Calling renderButtons which handles the processing of our topic array
         renderButtons();
     });
@@ -62,13 +88,18 @@ $(document).ready(function () {
         $("#spinner").show();
         $("#favGifs").show();
         $("#gifs-appear-here").hide();
+        $("#gifs-appear-here1").hide();
+        $("#gifs-appear-here2").hide();
+        $("#gifs-appear-here3").hide();
+        $("#gifs-appear-here4").hide();
+        $("#add").hide();
         $("#gif-buttons").hide();
         $("#search").hide();
         $("#friends").hide();
         $(".jumbotron").hide();
 
         // This empty function prevents the "favorites" window from popping up after the first click
-            window.swal = function() {};
+        window.swal = function () {};
 
         //  When user clicks "return to main page" button, show and hide on main page...
         $("#return").on("click", function () {
@@ -78,6 +109,11 @@ $(document).ready(function () {
             $("#spinner").hide();
             $("#favGifs").hide();
             $("#gifs-appear-here").show();
+            $("#gifs-appear-here1").show();
+            $("#gifs-appear-here2").show();
+            $("#gifs-appear-here3").show();
+            $("#gifs-appear-here4").show();
+            $("#add").hide();
             $("#gif-buttons").show();
             $("#search").show();
             $("#friends").show();
@@ -87,11 +123,14 @@ $(document).ready(function () {
     }); // end of favorite button function
 
     // Hide the permanent items found on "favorites" page
+
     //  $("#add").hide();
-    //  $("#counter").hide();
     $("#return").hide();
     $("#dead").hide();
     $("#spinner").hide();
+    $("#add").hide();
+
+
 
     // Event listener for all button elements
     $(document).on("click", ".superhero", function () {
@@ -109,7 +148,7 @@ $(document).ready(function () {
         console.log(hero);
 
         // Constructing a URL to search Giphy for each hero after selected by user
-        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + hero + "&api_key=VQVE4TWxa31vYL0rVQmC5oiSRQgC4taw&limit=5&rating=pg";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + hero + "&api_key=VQVE4TWxa31vYL0rVQmC5oiSRQgC4taw&limit=50&rating=pg";
         console.log(queryURL);
         // Performing our AJAX GET request
         $.ajax({
@@ -118,7 +157,7 @@ $(document).ready(function () {
             })
 
             // After the data comes back from the API
-            .then(function (response) {
+            .done(function (response) {
 
                 // Storing an array of results in the results variable
                 var results = response.data;
@@ -126,19 +165,22 @@ $(document).ready(function () {
 
                 // Empty the gifDiv before loading any new set of heros
                 $("#gifs-appear-here").empty(gifDiv);
+                $("#gifs-appear-here1").empty(gifDiv);
+                $("#gifs-appear-here2").empty(gifDiv);
+                $("#gifs-appear-here3").empty(gifDiv);
+                $("#gifs-appear-here4").empty(gifDiv);
 
                 // Looping over every result item
                 for (var i = 0; i < results.length; i++) {
 
                     var idTag = hero + i;
                     idTagFixed = idTag.split(' ').join('');
-
+                    console.log(idTag);
                     // Creating a div for the gif                  
                     var gifDiv = $("<div>", {
                         class: 'holder',
                         id: idTagFixed
                     });
-                    //  gifDiv.addClass("holder");
 
                     // Add variable rating and store it
                     var rating = results[i].rating;
@@ -163,35 +205,123 @@ $(document).ready(function () {
                     }).css("float", "right").css("color", "red");
 
                     //  Display the gif in the html
-                    gifDiv.append(p, favBtn);
+                    gifDiv.append(p);
+                    gifDiv.append(favBtn);
                     gifDiv.prepend(gifHero);
-                    $("#gifs-appear-here").append(gifDiv);
+
+                    // Conditionals to distribute gifs into 5 different divs (for adding gifs to page with button)...
+                    if (i < 10) {
+
+                        $("#gifs-appear-here").append(gifDiv);
+
+                    } else if (i > 10 && i < 21) {
+
+                        $("#gifs-appear-here1").append(gifDiv);
+
+                    } else if (i > 20 && i < 31) {
+
+                        $("#gifs-appear-here2").append(gifDiv);
+
+                    } else if (i > 30 && i < 41) {
+
+                        $("#gifs-appear-here3").append(gifDiv);
+
+                    } else {
+
+                        $("#gifs-appear-here4").append(gifDiv);
+                    }
+
+                    $("#add").show();
+                    $("#gifs-appear-here").show();
+                    $("#gifs-appear-here1").hide();
+                    $("#gifs-appear-here2").hide();
+                    $("#gifs-appear-here3").hide();
+                    $("#gifs-appear-here4").hide();
+
+                    // Function to add gifs to page... 
+                    (function () {
+
+                        var click = 0;
+
+                        $("#add").click(function () {
+
+                            click += 1;
+                            console.log(click);
+
+                            if (click == 1) {
+
+                                $("#gifs-appear-here").show();
+                                $("#gifs-appear-here1").show();
+                                $("#gifs-appear-here2").hide();
+                                $("#gifs-appear-here3").hide();
+                                $("#gifs-appear-here4").hide();
+
+                            } else if (click == 2) {
+
+                                $("#gifs-appear-here").show();
+                                $("#gifs-appear-here1").show();
+                                $("#gifs-appear-here2").show();
+                                $("#gifs-appear-here3").hide();
+                                $("#gifs-appear-here4").hide();
+
+                            } else if (click == 3) {
+
+                                $("#gifs-appear-here").show();
+                                $("#gifs-appear-here1").show();
+                                $("#gifs-appear-here2").show();
+                                $("#gifs-appear-here3").show();
+                                $("#gifs-appear-here4").hide();
+
+                            } else if (click == 4) {
+
+                                $("#gifs-appear-here").show();
+                                $("#gifs-appear-here1").show();
+                                $("#gifs-appear-here2").show();
+                                $("#gifs-appear-here3").show();
+                                $("#gifs-appear-here4").show();
+
+                            } else {
+
+                                // Alert for user has met the limit for number of gifs on one page...
+                                swal({
+                                    title: 'Sorry!',
+                                    text: 'No more than 50 Gifs can be added...',
+                                    imageUrl: 'assets/images/sorry.gif',
+                                    imageWidth: 300,
+                                    imageHeight: 150,
+                                    animation: false,
+                                    customClass: 'animated flash',
+                                });
+                            }
+                        });
+                    })();
 
                     //  on.click function when gifHero is pressed
                     gifHero.on("click", animateGif);
 
                 } // end of for loop...
 
-            }); // end of done response..
-
-        // Create function to stop and animate gifs
-        function animateGif() {
-
-            var state = $(this).attr("data-state");
-            console.log(this);
-
-            if (state === "still") {
-                $(this).attr("src", $(this).data("animate"));
-                $(this).attr("data-state", "animate");
-                $(this).css("hover", "pointer");
-            } else {
-                $(this).attr("src", $(this).data("still"));
-                $(this).attr("data-state", "still");
-            }
-
-        } // end of on-click function...
+            }); // end of done response...
 
     }); // end of document on-click...
+
+    // Create function to stop and animate gifs
+    function animateGif() {
+
+        var state = $(this).attr("data-state");
+        console.log(this);
+
+        if (state === "still") {
+            $(this).attr("src", $(this).data("animate"));
+            $(this).attr("data-state", "animate");
+            $(this).css("hover", "pointer");
+        } else {
+            $(this).attr("src", $(this).data("still"));
+            $(this).attr("data-state", "still");
+        }
+
+    } // end of on-click function...
+
 
     // On click function for selection of gif as "favorite"...
     $(document.body).on("click", ".fa-heart", function () {
@@ -206,15 +336,16 @@ $(document).ready(function () {
             $(this).attr({
                 'favorite-status': 'Yes'
             });
+
             var newFavCard = $("<div>", {
-                id: "fav" + parentCard,
-                class: "holder"
+                class: "holder",
+                id: "fav" + parentCard
             });
+
             $(newFavCard).append($(parentCardID).html());
             $("#favGifs").append(newFavCard);
             $("#favGifs").hide();
             console.log(newFavCard);
-
 
         } else {
             // Remove from Favorites
@@ -225,7 +356,6 @@ $(document).ready(function () {
             $(removeFav).remove();
         }
 
-    });  // end of document.body function
-
+    }); // end of document.body function
 
 }); // end of document.ready function...

@@ -25,7 +25,7 @@
     </div>
     <div class="row justify-content-sm-center">
       <div class="col-sm-auto">
-        <img id="dead" src="https://i.gifer.com/14Vb.gif">
+        <img id="dead" src="assets/images/dead2.gif">
       </div>
     </div>
     <div class="row">
@@ -39,12 +39,12 @@
         <img id="left" src="assets/images/super.gif">
         <label for="gif-input"><i class="fas fa-bolt fa-flip-horizontal" style="color: gold;"> </i> Add a Superhero
           <i class="fas fa-bolt" style="color: gold;"> </i></label>
-        <input type="text" id="gif-input" placeholder="Search">
+        <input id="gif-input" type="text" value="" placeholder="Search">
 
         <!-- Button triggers new hero button to be added -->
 
-        <button type="submit" id="add-gif" class="btn btn-default">
-          <i class="fas fa-bomb fa-3x"></i>
+        <button type="submit" id="add-gif" class="btn btn-default" title="BOOOOOM !!!">
+          <i class="fas fa-bomb fa-3x" style="color: darkred;"></i>
         </button>
         <img id="right" src="assets/images/super2.gif">
       </form>
@@ -64,17 +64,21 @@
     <div class="row">
       <div class="col-xs-12" id="gifs-appear-here">
         <img id="batman" src="assets/images/super8.png">
-        <img id="friends" src="assets/images/friends.gif">
-    <!--    <a>Favorites!</a>  -->
+        <img id="friends" src="assets/images/friends.gif" title="FAVORITES !!!" alt="favorites">
+        <!-- Favorites button -->
+
         <!-- All gifs will appear in this div -->
       </div>
+      <div class="col-xs-12" id="gifs-appear-here1"></div>
+      <div class="col-xs-12" id="gifs-appear-here2"></div>
+      <div class="col-xs-12" id="gifs-appear-here3"></div>
+      <div class="col-xs-12" id="gifs-appear-here4"></div>
 
-      <!-- <button id="add" type="button">Add 10 More Gifs!</button>
-        <div id="counter">0</div>  -->
+      <button type="button" id="add" class="btn btn-warning">Add 10 More Gifs!</button>
 
 
       <div class="col-xs" id="friends2">
-        <!-- #friends gif will go here when new gifs appear-->
+        <!-- favorites button will go here when new gifs appear-->
       </div>
     </div>
     <div class="row justify-content-sm-end">
@@ -86,7 +90,7 @@
     <br>
     <div class="row">
       <div class="col-xs-12" id="favGifs">
-        <!-- favorite gifs will go here -->
+        <!-- favorite gifs will go in this div -->
 
       </div>
     </div>
