@@ -37,8 +37,9 @@
       <!-- User input for new hero -->
       <form id="search">
         <img id="left" src="assets/images/super.gif">
-        <label for="gif-input"><i class="fas fa-bolt fa-flip-horizontal" style="color: gold;"> </i> Add a Superhero
-          <i class="fas fa-bolt" style="color: gold;"> </i></label>
+        <label for="gif-input"><i class="fas fa-bolt fa-flip-horizontal" style="color: gold; margin: 6px;"> </i> Add a
+          Superhero
+          <i class="fas fa-bolt" style="color: gold; margin: 5px;"> </i></label>
         <input id="gif-input" type="text" value="" placeholder="Search">
 
         <!-- Button triggers new hero button to be added -->
@@ -72,7 +73,8 @@
       <div class="col-xs-12" id="gifs-appear-here3"></div> <!-- All gifs will appear in this div -->
       <div class="col-xs-12" id="gifs-appear-here4"></div> <!-- All gifs will appear in this div -->
 
-      <button type="button" id="add" class="btn btn-warning">Add 10 More Gifs!</button>
+      <button type="button" id="add" class="btn btn-outline-warning" style="background-color: orangered;">Add 10 More
+        Gifs!</button>
 
       <div class="col-xs" id="friends2">
         <!-- favorites button will go here when new gifs appear-->
@@ -84,12 +86,14 @@
         <button type="button" id="return" class="btn btn-danger">Return to Main Page</button>
       </div>
     </div>
+    <a id="upBtn">
+      <i class="fas fa-arrow-circle-up fa-2x" title="Back to Top!"></i>
+    </a>
     <br>
     <br>
     <div class="row">
       <div class="col-xs-12" id="favGifs">
         <!-- favorite gifs will go in this div -->
-
       </div>
     </div>
   </div>
@@ -100,6 +104,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/sweetalert2/6.1.1/sweetalert2.min.js"></script>
   <script src="assets/javascript/app.js"></script>
+
+
 
 </body>
 

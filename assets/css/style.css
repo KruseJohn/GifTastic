@@ -87,7 +87,6 @@ p {
     font-size: 2.8em;
     font-family: fantasy;
     color: darkolivegreen;
-
 }
 
 @keyframes spin {
@@ -151,19 +150,24 @@ p {
 label {
     font-size: 24px;
     color: green;
+    letter-spacing: .5px;
+    text-shadow: 0px 0px 1px yellow;
 }
 
 #add {
     margin-top: 30px;
     padding: 10px;
-    font-size: 20px;
+    font-size: 18px;
     border-radius: 8px;
+    letter-spacing: 2px;
+    border: 0px;
 }
 
 #add-gif {
     /* submit bomb button */
     background-color: transparent;
     vertical-align: bottom;
+    padding: 5px;
 }
 
 #add-gif:hover {
@@ -216,6 +220,45 @@ img {
     z-index: 1;
 }
 
+#upBtn {
+    display: inline-block;
+    background-color: orangered;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    vertical-align: middle;
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+    transition: background-color .3s,
+        opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+#upBtn::after {
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: #fff;
+}
+
+#upBtn:hover {
+    cursor: pointer;
+    background-color: gold;
+}
+
+#upBtn:active {
+    background-color: #555;
+}
+
+#upBtn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
 @media only screen and (max-width: 580px) {
 
     .holder {
@@ -225,6 +268,28 @@ img {
     #left,
     #right {
         display: none;
+    }
+
+    label {
+        font-size: 24px;
+        color: green;
+        margin-top: 25px;
+    }
+
+    #add {
+        margin-top: 30px;
+        padding: 5px;
+        font-size: 14px;
+        border-radius: 8px;
+        letter-spacing: .5px;
+        border: 1px orangered;
+    }
+
+    #add-gif {
+        /* submit bomb button */
+        background-color: transparent;
+        vertical-align: bottom;
+        padding: 0px 5px;
     }
 
 }

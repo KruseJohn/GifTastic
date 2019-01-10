@@ -1,3 +1,6 @@
+// ************  Api Key = VQVE4TWxa31vYL0rVQmC5oiSRQgC4taw  **************
+
+
 $(document).ready(function () {
     // Array for topics...
     var topics = ["Spider-Man", "Iron Man", "Batman", "Wolverine", "Black Panther", "The Hulk", "Superman", "Wonder Woman", "Thor", "Captain America",
@@ -42,7 +45,6 @@ $(document).ready(function () {
                 imageWidth: 300,
                 imageHeight: 200,
                 customClass: 'animated flash',
-
             });
             return false;
         }
@@ -67,7 +69,10 @@ $(document).ready(function () {
         // Adding the new gif (topic) from the textbox to our topic array
         topics.push(topic);
         console.log(topics);
+
+        // Empty the user text box field after submit
         $("#gif-input").val("");
+
         // Calling renderButtons which handles the processing of our topic array
         renderButtons();
     });
@@ -86,6 +91,9 @@ $(document).ready(function () {
             customClass: 'animated flash',
         });
 
+        // This empty function prevents the "favorites" window from popping up after the first click
+        window.swal = function () {};
+
         // Show and hide on "favorites" page
         $("#return").show();
         $("#dead").show();
@@ -102,8 +110,6 @@ $(document).ready(function () {
         $("#friends").hide();
         $(".jumbotron").hide();
 
-        // This empty function prevents the "favorites" window from popping up after the first click
-        window.swal = function () {};
 
         //  When user clicks "return to main page" button, show and hide on main page...
         $("#return").on("click", function () {
@@ -122,7 +128,8 @@ $(document).ready(function () {
             $("#search").show();
             $("#friends").show();
             $(".jumbotron").show();
-        });
+
+        }); // end of "return" button function
 
     }); // end of favorite button function
 
@@ -361,5 +368,23 @@ $(document).ready(function () {
         }
 
     }); // end of document.body function
+
+    // When the user scrolls down 600px from the top of the document, show "back to top" button
+    var btn = $('#upBtn');
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > 600) {
+            btn.addClass('show');
+        } else {
+            btn.removeClass('show');
+        }
+    });
+
+    btn.on('click', function (e) {
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: 0
+        }, '300');
+    });
 
 }); // end of document.ready function...
