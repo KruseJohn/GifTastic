@@ -29,7 +29,9 @@ $(document).ready(function () {
 
     // This function handles events when the "add a superhero submit button" is clicked
     $("#add-gif").on("click", function (event) {
+        // Don't refresh the page!
         event.preventDefault();
+        
         // This line grabs the input from the textbox
         var topic = $("#gif-input").val().trim();
 

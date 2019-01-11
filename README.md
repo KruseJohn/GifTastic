@@ -1,7 +1,5 @@
 # GifTastic
 
-GifTastic
-
 
 In this project, the GIPHY API is used to make a dynamic web page that populates with gifs.  The theme is Superheroes.
 
@@ -15,11 +13,11 @@ The ten gifs that appear will be shown as still images.  Click on the gif to ani
 
 Built With:
 
-HTML5
-CSS3
-Twitter-Bootstrap
-JavaScript
-jQuery 
-giphy API
-SweetAlert2
+HTML5,
+CSS3,
+Twitter-Bootstrap,
+JavaScript,
+jQuery, 
+giphy API,
+SweetAlert2,
 Font Awesome
