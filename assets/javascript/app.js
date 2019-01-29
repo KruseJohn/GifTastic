@@ -39,7 +39,7 @@ $(document).ready(function () {
         // This prevents an empty text box from being submitted as a button or into the array...
         if (!topic) {
             item.topic = "";
-            swal({
+           swal({
                 type: 'error',
                 title: 'Oops...',
                 text: 'Please type a name into the search field!',
@@ -210,7 +210,6 @@ $(document).ready(function () {
                     gifHero.attr("data-state", "still");
 
                     // create a div and button for a favorite section
-
                     var favBtn = $("<i class='far fa-heart fa-lg'></i>");
                     favBtn.attr({
                         'favorite-status': 'No',

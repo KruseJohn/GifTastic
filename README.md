@@ -1,4 +1,4 @@
-# GifTastic
+# Superheroes!
 
 
 In this project, the GIPHY API is used to make a dynamic web page that populates with gifs.  The theme is Superheroes.
@@ -20,4 +20,6 @@ JavaScript,
 jQuery, 
 giphy API,
 SweetAlert2,
-Font Awesome
+Font Awesome.
+
+Demo: https://krusejohn.github.io/Superheroes/
