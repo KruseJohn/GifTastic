@@ -3,6 +3,8 @@
 
 ### In this project, the GIPHY API is used to make a dynamic web page that populates with gifs.  The theme is Superheroes.
 
+![Avengers](https://github.com/KruseJohn/Superheroes/blob/master/assets/images/avengers.jpg)
+
 
 ### Instructions:
 
@@ -13,7 +15,7 @@
 
 ### Built With:
 
-####HTML5, CSS3, Twitter-Bootstrap, JavaScript, jQuery, giphy API, SweetAlert2, Font Awesome.
+#### HTML5, CSS3, Twitter-Bootstrap, JavaScript, jQuery, giphy API, SweetAlert2, Font Awesome.
 
 
 ### Demo: 
