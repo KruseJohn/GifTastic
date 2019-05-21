@@ -16,6 +16,10 @@
 
 ![demo3](https://github.com/KruseJohn/Superheroes/blob/master/assets/images/demo3.PNG)
 
+### Demo: 
+
+#### https://krusejohn.github.io/Superheroes/
+
 
 
 ### Built With:
@@ -23,8 +27,6 @@
 #### HTML5, CSS3, Twitter-Bootstrap, JavaScript, jQuery, giphy API, SweetAlert2, Font Awesome.
 
 
-### Demo: 
 
-#### https://krusejohn.github.io/Superheroes/
 
 
